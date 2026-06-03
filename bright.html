@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bright Pantura Organizer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f7fa;
+    color:#222;
+}
+
+/* Navbar */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#00d4ff;
+}
+
+/* Hero */
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:30px;
+}
+
+.btn{
+    padding:15px 30px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:16px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:#00d4ff;
+    color:#000;
+}
+
+.btn-primary:hover{
+    transform:translateY(-5px);
+}
+
+/* Section */
+section{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    color:#0f172a;
+}
+
+/* Services */
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    transition:.4s;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card span{
+    font-size:50px;
+}
+
+/* Counter */
+.stats{
+    background:#0f172a;
+    color:white;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    text-align:center;
+}
+
+.counter{
+    font-size:3rem;
+    font-weight:bold;
+    color:#00d4ff;
+}
+
+/* Portfolio */
+.portfolio{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.portfolio img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:.4s;
+}
+
+.portfolio img:hover{
+    transform:scale(1.05);
+}
+
+/* Testimonials */
+.testimonial-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.testimonial{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+/* Contact */
+.contact{
+    background:#eaf9ff;
+    text-align:center;
+}
+
+.contact form{
+    max-width:600px;
+    margin:auto;
+}
+
+.contact input,
+.contact textarea{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+}
+
+.contact button{
+    background:#00d4ff;
+    border:none;
+    padding:15px 30px;
+    border-radius:50px;
+    cursor:pointer;
+}
+
+/* Whatsapp */
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:65px;
+    height:65px;
+    background:#25d366;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:30px;
+    text-decoration:none;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+    100%{transform:scale(1);}
+}
+
+footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:all .8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+@media(max-width:768px){
+.hero h1{
+font-size:2.5rem;
+}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">BrightPantura</div>
+
+<ul>
+<li><a href="#about">Tentang</a></li>
+<li><a href="#services">Layanan</a></li>
+<li><a href="#portfolio">Portofolio</a></li>
+<li><a href="#contact">Kontak</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Wujudkan Event Impian Anda</h1>
+<p>Kami menghadirkan pengalaman event yang kreatif, profesional dan berkesan.</p>
+
+<a href="#contact" class="btn btn-primary">
+Konsultasi Sekarang
+</a>
+</div>
+</section>
+
+<section id="about" class="reveal">
+<div class="section-title">
+<h2>Tentang Kami</h2>
+</div>
+
+<p style="text-align:center;max-width:900px;margin:auto;">
+Kami adalah Event Organizer profesional yang berpengalaman menangani
+corporate event, festival, konser, wisata, gathering, wedding dan berbagai event skala besar.
+</p>
+</section>
+
+<section id="services" class="reveal">
+<div class="section-title">
+<h2>Layanan Kami</h2>
+</div>
+
+<div class="services">
+
+<div class="card">
+<span>🎤</span>
+<h3>Festival & Concert</h3>
+<p>Pengelolaan konser dan festival profesional.</p>
+</div>
+
+<div class="card">
+<span>🏖️</span>
+<h3>Tourism Event</h3>
+<p>Festival wisata dan destinasi unggulan.</p>
+</div>
+
+<div class="card">
+<span>🏢</span>
+<h3>Corporate Event</h3>
+<p>Meeting, gathering dan launching produk.</p>
+</div>
+
+<div class="card">
+<span>💍</span>
+<h3>Wedding Organizer</h3>
+<p>Mewujudkan hari spesial Anda.</p>
+</div>
+
+</div>
+</section>
+
+<section class="stats reveal">
+
+<div class="stats-grid">
+
+<div>
+<div class="counter" data-target="150">0</div>
+<p>Event Sukses</p>
+</div>
+
+<div>
+<div class="counter" data-target="50">0</div>
+<p>Klien Korporasi</p>
+</div>
+
+<div>
+<div class="counter" data-target="10000">0</div>
+<p>Peserta Event</p>
+</div>
+
+<div>
+<div class="counter" data-target="8">0</div>
+<p>Tahun Pengalaman</p>
+</div>
+
+</div>
+</section>
+
+<section id="portfolio" class="reveal">
+<div class="section-title">
+<h2>Portofolio</h2>
+</div>
+
+<div class="portfolio">
+<img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30" alt="">
+<img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329" alt="">
+<img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622" alt="">
+</div>
+
+</section>
+
+<section class="reveal">
+<div class="section-title">
+<h2>Testimoni Klien</h2>
+</div>
+
+<div class="testimonial-container">
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<p>"Event berjalan sangat lancar dan profesional."</p>
+<b>- PT Maju Jaya</b>
+</div>
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<p>"Konsep kreatif dan eksekusi luar biasa."</p>
+<b>- Dinas Pariwisata</b>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact reveal">
+
+<div class="section-title">
+<h2>Hubungi Kami</h2>
+</div>
+
+<form>
+<input type="text" placeholder="Nama Anda">
+<input type="email" placeholder="Email">
+<textarea rows="5" placeholder="Ceritakan kebutuhan event Anda"></textarea>
+<button type="submit">Kirim Pesan</button>
+</form>
+
+</section>
+
+<footer>
+© 2026 Bright Pantura Organizer. All Rights Reserved.
+</footer>
+
+<a class="whatsapp"
+href="https://wa.me/6285790230785?text=Halloo%20kak,%20saya%20ingin%20buat%20event"
+target="_blank">
+💬
+</a>
+
+<script>
+
+// Counter Animation
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+
+const updateCounter = () => {
+
+const target = +counter.getAttribute('data-target');
+const count = +counter.innerText;
+
+const increment = target / 100;
+
+if(count < target){
+counter.innerText = Math.ceil(count + increment);
+setTimeout(updateCounter,20);
+}else{
+counter.innerText = target;
+}
+};
+
+updateCounter();
+
+});
+
+// Scroll Reveal
+window.addEventListener('scroll', () => {
+
+document.querySelectorAll('.reveal').forEach(el => {
+
+const windowHeight = window.innerHeight;
+const elementTop = el.getBoundingClientRect().top;
+
+if(elementTop < windowHeight - 100){
+el.classList.add('active');
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
